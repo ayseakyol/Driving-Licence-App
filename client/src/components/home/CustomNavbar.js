@@ -12,8 +12,8 @@ const CustomNavbar = () => {
           <Nav.Link href="/" active>
             Home
           </Nav.Link>
-          <Nav.Link href="#tutorial">Tutorial</Nav.Link>
-          <Nav.Link href="#takePractice">Take Practice Test</Nav.Link>
+          <Nav.Link href="/tutorials">Tutorials</Nav.Link>
+          <Nav.Link href="/freetest">Take Practice Test</Nav.Link>
           <Nav.Link href="#contact">Contact Us</Nav.Link>
         </Nav>
         <Form inline>

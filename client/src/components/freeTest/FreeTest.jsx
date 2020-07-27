@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, Row, Col, Container } from "react-bootstrap";
 import "./FreeTest.css";
 import TestNavbar from "./TestNavbar";
 
 const question = {
   totalNumber: 25,
-  image: "/assets/driversCourse.webp",
+  image: "/assets/test-2/1/2015_01_27_03_26_0820141205_123346.jpg",
   situation:
     "You are driving at 80 km/h, outside a built-up area. The lorry, in front of you, is driving 70km/h. There is a free rear view. What will you do?",
   question1: "I speed up to 90 km/h and overtake the lorry, straight away?",
@@ -16,8 +16,11 @@ const question = {
 };
 
 const FreeTest = () => {
+  //const [showNextQuestion, setShowNextQuestion] = useState(false);
+  //const onClick = () => setShowNextQuestion(true);
+
   return (
-    <div>
+    <>
       <TestNavbar />
       <Container className="free-test">
         <Row className="test-part">
@@ -25,21 +28,26 @@ const FreeTest = () => {
           <Col xs={8} md={9}>
             <Image
               src={question.image}
-              className="image-situation rounded my-2"
+              rounded
+              className="image-situation  my-2"
             />
           </Col>
           <Col xs={1} md={2}>
-            <Image src="/assets/next.png" className="next-button" />
+            <Image
+              src="/assets/next2.jpeg"
+              roundedCircle
+              className="next-button"
+            />
           </Col>
         </Row>
         <Col>
-          <Row className="situation p-1 my-2">
+          <Row className="situation pl-2">
             <h3>{question.situation}</h3>
             {/* {renderError()} */}
           </Row>
           <Row>
             <Col className="questions" xs={8} md={10}>
-              <h4>{question.question2}</h4>
+              <h4>{question.question1}</h4>
             </Col>
             <div className="form-check form-check-inline check-box" xs={1}>
               <input
@@ -48,7 +56,9 @@ const FreeTest = () => {
                 name="inlineRadioOptions"
                 id="inlineRadio1"
                 value="option1"
+                //onClick={onClick}
               />
+              {/* {showNextQuestion ? <Results /> : null} */}
               <label className="form-check-label" for="inlineRadio1">
                 Yes
               </label>
@@ -155,7 +165,7 @@ const FreeTest = () => {
           </Row>
         </Col>
       </Container>
-    </div>
+    </>
   );
 };
 

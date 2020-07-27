@@ -1,18 +1,4 @@
-
-.three-cards {
-  height: 100%;
-  margin: 0;
-  font-family: "Rowdies", cursive;
-}
-.practice-text {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-}
-
 h2 {
   color: #019286;
   font-family: "Rowdies", cursive;
 }
-

@@ -1,5 +1,6 @@
-.container {
-  position: relative;
+.first-image {
+  min-width: 100vw;
+  height: 40vh;
 }
 .driver-card {
   position: absolute;

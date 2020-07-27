@@ -1,17 +1,13 @@
 import React from "react";
 import "./Cards.css";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Row, Col, Card, Button } from "react-bootstrap";
 
 const Cards = () => {
   return (
-    <Container>
-      <Row className="three-cards">
-        <Col>
-          <h2 className="text-center" variant="info">
-            How We Work
-          </h2>
-        </Col>
-      </Row>
+    <>
+      <h2 className="text-center" variant="info">
+        How We Work
+      </h2>
       <Row className="practice-text">
         <Col className="m-3" xs={11} md={3}>
           <Card>
@@ -54,7 +50,7 @@ const Cards = () => {
           </Card>
         </Col>
       </Row>
-    </Container>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Practice.css";
-import { Row, Col, Image, Container } from "react-bootstrap";
+import { Row, Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 class Practice extends React.Component {
@@ -10,7 +10,7 @@ class Practice extends React.Component {
   }
   render() {
     return (
-      <Container className="container">
+      <>
         <Row>
           <Col xs={12} md={5}>
             <Row>
@@ -37,7 +37,7 @@ class Practice extends React.Component {
               <VideoWatch />
             </Col> */}
         </Row>
-      </Container>
+      </>
     );
   }
 }

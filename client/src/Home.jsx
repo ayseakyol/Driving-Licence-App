@@ -21,13 +21,13 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <CustomNavbar />
         <Picture />
         <Cards />
         <Practice />
         <Footer />
-      </div>
+      </>
     );
   }
 }
