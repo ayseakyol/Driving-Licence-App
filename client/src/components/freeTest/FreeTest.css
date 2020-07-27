@@ -1,0 +1,52 @@
+.free-test {
+  height: 100%;
+  min-width: 95%;
+  margin: 0 auto;
+  font-family: "Rowdies", cursive;
+  font-size: 0.8rem;
+}
+h1 {
+  color: rgb(0, 140, 255);
+}
+h3,
+h4 {
+  font-size: 2.8vh;
+}
+.test-part {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.image-situation {
+  height: 50vh;
+  width: 65vw;
+}
+.situation {
+  background-color: rgb(191, 223, 245);
+  -webkit-box-shadow: 0 0 4px 2px rgb(2, 13, 22);
+  -moz-box-shadow: 0 0 4px 2px rgb(2, 13, 22);
+  box-shadow: 0 0 4px 2px rgb(2, 13, 22);
+}
+.questions {
+  background-color: #a0f3f3;
+  -webkit-box-shadow: 0 0 4px 2px rgb(4, 64, 112);
+  -moz-box-shadow: 0 0 4px 2px rgb(4, 64, 112);
+  box-shadow: 0 0 4px 2px rgb(4, 64, 112);
+  margin: 6px;
+}
+.check-box {
+  background-color: #00bfaf;
+  -webkit-box-shadow: 0 0 4px 2px rgb(4, 64, 112);
+  -moz-box-shadow: 0 0 4px 2px rgb(4, 64, 112);
+  box-shadow: 0 0 4px 2px rgb(4, 64, 112);
+  margin: 6px;
+  padding: 1vw;
+}
+.next-button {
+  width: 12vw;
+}

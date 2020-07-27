@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const path = require('path');
-const mongoose = require('./db/mongoose.js')
+// const mongoose = require('./db/mongoose.js')
 
 const app = express();
 
@@ -15,9 +15,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
-app.use('/', require('./routes/home.js'));
-app.use('/', require('./routes/login.js'));
-app.use('/', require('./routes/test.js'));
+// if user makes a request http://localhost:5000/api/home it will go to ./home/index.js
+app.use('/', require('./home'));
+app.use('/', require('./login/login.js'));
+app.use('/tests', require('./tests')); // ./tests/index.js
 
 module.exports = app;
