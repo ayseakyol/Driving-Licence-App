@@ -1,0 +1,12 @@
+html {
+  height: 100vh;
+}
+.feedbackQuestion {
+  color: red;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+}

@@ -1,13 +1,19 @@
-.tutorials {
+.main {
+  height: 100%;
+  margin: 0;
   font-family: "Rowdies", cursive;
 }
-@media only screen and (max-width: 600px) {
-  .video-section {
-    margin-left: 125px;
-  }
+.video-part {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 100px;
 }
-@media only screen and (min-width: 600px) {
-  .first-video {
-    margin-left: 3vw;
-  }
+.header {
+  font-size: 1.8rem;
+}
+.video-section {
+  width: 60vw;
+  margin-left: 3%;
 }

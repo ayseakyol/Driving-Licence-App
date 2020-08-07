@@ -1,169 +1,192 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Image, Row, Col, Container } from "react-bootstrap";
 import "./FreeTest.css";
 import TestNavbar from "./TestNavbar";
 
-const question = {
-  totalNumber: 25,
-  image: "/assets/test-2/1/2015_01_27_03_26_0820141205_123346.jpg",
-  situation:
-    "You are driving at 80 km/h, outside a built-up area. The lorry, in front of you, is driving 70km/h. There is a free rear view. What will you do?",
-  question1: "I speed up to 90 km/h and overtake the lorry, straight away?",
-  question2:
-    "I continue at the same speed of 80 km/h and overtake the lorry, straight away?",
-  question3: "I slow down and wait a bit to overtake the lorry?",
-  question4: "I stop?",
-};
+const FreeTest = (props) => {
+  const [situationNumber, setSituationNumber] = useState(1);
+  const [situation, setSituation] = useState([]);
+  const [questions, setQuestions] = useState([]);
+  const [userAnswer, setUserAnswer] = useState([]);
+  const [testLength, setTestLength] = useState(null);
+  const [fileNames, setFileNames] = useState([]);
+  const [test, setTest] = useState(localStorage.getItem("testN"));
 
-const FreeTest = () => {
-  //const [showNextQuestion, setShowNextQuestion] = useState(false);
-  //const onClick = () => setShowNextQuestion(true);
+  const getAnswer = (idx, answerNo) => {
+    if (typeof Storage !== "undefined") {
+      //Code for localStorage/sessionStorage.
+      if (localStorage.userAnswer) {
+        let answer_in_storage = JSON.parse(
+          window.localStorage.getItem("userAnswer")
+        );
+        setUserAnswer(answer_in_storage);
+        let isAnswered_before = userAnswer.filter(
+          (el) => el.questionId === idx
+        );
+        if (isAnswered_before.length === 0) {
+          let usr_answer = userAnswer.slice();
+          usr_answer.push({
+            questionId: idx,
+            answer: answerNo,
+            situationId: situationNumber,
+          });
+          let aa = usr_answer;
+          setUserAnswer(aa);
+          window.localStorage.setItem("userAnswer", JSON.stringify(userAnswer));
+        } else {
+          let usr_answer = userAnswer.slice();
+          let changedAnswer = usr_answer.filter((el) => el.questionId !== idx);
+          changedAnswer.push({
+            questionId: idx,
+            answer: answerNo,
+            situationId: situationNumber,
+          });
+          setUserAnswer(changedAnswer);
+          window.localStorage.setItem("userAnswer", JSON.stringify(userAnswer));
+        }
+        console.log(userAnswer);
+      } else {
+        localStorage.userAnswer = JSON.stringify([
+          { questionId: idx, answer: answerNo, situationId: situationNumber },
+        ]);
+      }
+    } else {
+      //Sorry! No Web Storage support..
+      alert("Sorry! No Web Storage support..");
+    }
+  };
+
+  const goToNext = () =>
+    situationNumber < testLength
+      ? setSituationNumber(situationNumber + 1)
+      : situationNumber;
+
+  useEffect(() => {
+    const fetchSituation = () => {
+      return fetch(`/api/tests/'${test}'/${situationNumber}`)
+        .then((res) => res.json())
+        .then((data) => data);
+    };
+    //console.log(fetchSituation());
+    fetchSituation().then((gettingData) => {
+      setSituation(gettingData);
+    });
+
+    const fetchQuestion = () => {
+      return fetch(`/api/tests/question/'${test}'/${situationNumber}`)
+        .then((res) => res.json())
+        .then((data) => data);
+    };
+    //console.log(fetchQuestion());
+    fetchQuestion().then((gettingQuestion) => {
+      setQuestions(gettingQuestion);
+    });
+    // Total situation count
+    const fetchSituationCount = () => {
+      return fetch(`/api/tests/'${test}'`)
+        .then((res) => res.json())
+        .then((data) => data);
+    };
+    //console.log(fetchQuestion());
+    fetchSituationCount().then((gettingTotal) => {
+      let count = gettingTotal.rows.length;
+      setTestLength(count);
+      window.localStorage.setItem("firstSituationId", gettingTotal.first);
+    });
+
+    // Fetch file names
+    const fetchFileNames = () => {
+      return fetch(`/api/tests/filenames`)
+        .then((res) => res.json())
+        .then((data) => data);
+    };
+
+    fetchFileNames().then((data) => {
+      setFileNames(data);
+    });
+  }, [situationNumber]);
 
   return (
     <>
-      <TestNavbar />
-      <Container className="free-test">
+      <TestNavbar situationNo={situationNumber} testLength={testLength} />
+      <Container className="free-test" align="center">
         <Row className="test-part">
-          <Col xs={1}></Col>
-          <Col xs={8} md={9}>
-            <Image
-              src={question.image}
-              rounded
-              className="image-situation  my-2"
-            />
-          </Col>
-          <Col xs={1} md={2}>
-            <Image
-              src="/assets/next2.jpeg"
-              roundedCircle
-              className="next-button"
-            />
+          <Col xs={12} >
+            {fileNames
+              .filter(
+                (el) =>
+                  Number(el.situationNumber) === Number(situationNumber) &&
+                  el.testName === test
+              )
+              .map((img) => (
+                <div className="test-part ">
+                  <Image
+                    src={img.fileRelativePath} //{situation_img.image}
+                    rounded
+                    className="image-situation  mb-2"
+                    key={img.situationNumber}
+                  />
+                </div>
+              ))}
           </Col>
         </Row>
-        <Col>
-          <Row className="situation pl-2">
-            <h3>{question.situation}</h3>
-            {/* {renderError()} */}
-          </Row>
-          <Row>
-            <Col className="questions" xs={8} md={10}>
-              <h4>{question.question1}</h4>
+        <Row className="situation">
+          {situation.map((text, id) => (
+            <Col xs={12}>
+              <h3 key={id}>{text.situation}</h3>
             </Col>
-            <div className="form-check form-check-inline check-box" xs={1}>
-              <input
-                className="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio1"
-                value="option1"
-                //onClick={onClick}
-              />
-              {/* {showNextQuestion ? <Results /> : null} */}
-              <label className="form-check-label" for="inlineRadio1">
-                Yes
-              </label>
-            </div>
-            <div className="form-check form-check-inline check-box" xs={1}>
-              <input
-                className="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio2"
-                value="option2"
-              />
-              <label className="form-check-label" for="inlineRadio2">
-                No
-              </label>
-            </div>
-          </Row>
-          <Row>
-            <Col className="questions" xs={8} md={10}>
-              <h4>{question.question3}</h4>
-            </Col>
-            <div className="form-check form-check-inline check-box" xs={1}>
-              <input
-                className="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio1"
-                value="option1"
-              />
-              <label className="form-check-label" for="inlineRadio1">
-                Yes
-              </label>
-            </div>
-            <div className="form-check form-check-inline check-box" xs={1}>
-              <input
-                className="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio2"
-                value="option2"
-              />
-              <label className="form-check-label" for="inlineRadio2">
-                No
-              </label>
-            </div>
-          </Row>
-          <Row>
-            <Col className="questions" xs={8} md={10}>
-              <h4>{question.question1}</h4>
-            </Col>
-            <div className="form-check form-check-inline check-box" xs={1}>
-              <input
-                className="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio1"
-                value="option1"
-              />
-              <label className="form-check-label" for="inlineRadio1">
-                Yes
-              </label>
-            </div>
-            <div className="form-check form-check-inline check-box" xs={1}>
-              <input
-                className="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio2"
-                value="option2"
-              />
-              <label className="form-check-label" for="inlineRadio2">
-                No
-              </label>
-            </div>
-          </Row>
-          <Row>
-            <Col className="questions" xs={8} md={10}>
-              <h4>{question.question4}</h4>
-            </Col>
-            <div className="form-check form-check-inline check-box" xs={1}>
-              <input
-                className="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio1"
-                value="option1"
-              />
-              <label className="form-check-label" for="inlineRadio1">
-                Yes
-              </label>
-            </div>
-            <div className="form-check form-check-inline check-box" xs={1}>
-              <input
-                className="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio2"
-                value="option2"
-              />
-              <label className="form-check-label" for="inlineRadio2">
-                No
-              </label>
-            </div>
-          </Row>
-        </Col>
+          ))}
+        </Row>
+        <Row>
+          <Col xs={{ span: 9, offset: 1 }} md={{ span: 7, offset: 3}}>
+            {questions.map((question, id) => (
+                <Row className="question-part" key={question.questionId}>
+                  <Col
+                    xs={8}
+                    className="questions"
+                    key={question.questionId}
+                  >
+                    <p key={question.questionId} className="questions-text">
+                      {question.text}
+                    </p>
+                  </Col>
+
+                <Col xs={2} md={1} className="form-check form-check-inline check-box">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name={id}
+                      id={`inlineRadio${question.questionId}`}
+                      value="option1"
+                      onChange={() => getAnswer(question.questionId, 1)}
+                    />
+                    <label className="form-check-label" htmlFor="inlineRadio1">
+                      Yes
+                    </label>
+                  </Col>
+                  <Col xs={2} md = {1} className="form-check form-check-inline check-box">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name={id}
+                      id={`inlineRadio${question.questionId + 1}`}
+                      value="option2"
+                      onChange={() => getAnswer(question.questionId, 2)}
+                    />
+                    <label className="form-check-label" htmlFor="inlineRadio2">
+                      No
+                    </label>
+                  </Col>
+                </Row>
+            ))}
+          </Col>
+          <Col xs={2} md={2} className="next" onClick={() => goToNext()}>
+            <Image
+              src="/assets/nextt.png"
+              className="next-image"
+              ></Image>
+          </Col>
+        </Row>
       </Container>
     </>
   );

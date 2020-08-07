@@ -1,45 +1,48 @@
-import React from "react";
-import "./Practice.css";
-import { Row, Col, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React from 'react';
+import './Practice.css';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class Practice extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}
+	render() {
+		return (
       <>
-        <Row>
-          <Col xs={12} md={5}>
-            <Row>
-              <h1 className="practice-text m-5">Take Practice Test</h1>
+			<Container fluid id="practice-part" className=" third-part">
+					<Row className="justify-content-md-center ">
+						<Col xs={12} className="practice-text-first">
+							<h1>Take Free Test</h1>
+						</Col>
+						<Col xs={12} className="text-center mt-1">
+							<div>AN EASY WAY TO STUDY BORING STUFF</div>
+						</Col>
+						<Col xs={{ span: 8, offset: 3 }} md={{ span: 5, offset: 1 }} className="mt-3">
+							<Link to="/freetest">
+								<Image
+									src="/assets/free-online.jpeg"
+									roundedCircle
+									className="practice-pic"
+									width="70%"
+								/>
+							</Link>
+						</Col>
             </Row>
-            <Row className="practice-text">
-              <Link to="/freetest">
-                <Image
-                  src="/assets/freeTest.png"
-                  roundedCircle
-                  className="practice-pic"
-                />
-              </Link>
-            </Row>
-            <Row>
-              <h5 className="practice-text m-3">
-                AN EASY WAY TO STUDY BORING STUFF
-              </h5>
-            </Row>
-          </Col>
-
-          {/* Our page video will be put.
-            <Col className=" m-5" xs={12} md={5}>
-              <VideoWatch />
-            </Col> */}
-        </Row>
-      </>
-    );
-  }
+            </Container>
+          <Container fluid className="comment-Button mb-5">
+              <Row>
+						<Col xs={12}  >
+							<a href="#comment-part">
+								<Image src="/assets/bottom.png" className="third-go d-none d-xl-block" roundedCircle />
+							</a>
+						</Col>
+					</Row>
+			  </Container>
+        </>
+		);
+	}
 }
 
 export default Practice;

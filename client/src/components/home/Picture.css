@@ -1,19 +1,44 @@
+html {
+  scroll-behavior: smooth;
+}
 .first-image {
-  min-width: 100vw;
-  height: 40vh;
+  width: 100vw;
 }
 .driver-card {
   position: absolute;
-  bottom: 200px;
-  left: -150px;
-  color: #fd8a5e;
+  top: 100px;
+  left: 100px;
   width: 20vw;
   height: 14vh;
-}
-.card-text {
-  color: #019286;
-  font-family: "Oxygen", sans-serif;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
 }
 .card-title {
-  font-size: 1.3vw;
+  color: white;
+  font-size: 54px;
+  line-height: 1;
+  text-transform: uppercase;
+  text-align: center;
+}
+.h-text {
+  color: white;
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-top: -0.25rem;
+  text-align: center;
+}
+.go:hover {
+  box-shadow: inset 0 0 0 2px #b4ecff;
+  color: #e9f1f3 !important;
+}
+.go {
+  width: 100px;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 }

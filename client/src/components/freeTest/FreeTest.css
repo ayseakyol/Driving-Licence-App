@@ -1,75 +1,103 @@
 .free-test {
   height: 100%;
-  min-width: 100%;
   margin: 0 auto;
-  font-family: "Rowdies", cursive;
   font-size: 0.8rem;
   background-color: rgb(252, 254, 255);
+  line-height: 1.5rem;
 }
 h1 {
   color: rgb(0, 140, 255);
 }
 h3 {
-  font-size: 2.8vh;
-}
-h4,
-label {
   font-size: 2.4vh;
 }
+label {
+  font-size: 2vh;
+}
 .test-part {
+  max-width: 900px;
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: center;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 5;
-}
-.image-situation {
-  height: 50vh;
-  width: 65vw;
 }
 .situation {
+  max-width: 900px;
   color: rgb(37, 71, 121);
 }
+.situation-part {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+.question-part {
+  line-height: 1rem;
+}
+
+.image-situation {
+  height: 60vh;
+}
 .questions {
-  background-color: #c4d2df;
+  background-color: #efefef;
   -webkit-box-shadow: 0 0 2px 1px rgb(4, 64, 112);
   -moz-box-shadow: 0 0 2px 1px rgb(4, 64, 112);
   box-shadow: 0 0 2px 1px rgb(4, 64, 112);
-  margin-right: 1rem;
   display: flex;
   flex: 1;
   justify-content: flex-start;
   align-items: center;
 }
+.questions-text {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.3em;
+}
 .check-box {
-  background-color: #c9daf0;
+  background-color: #dde7f3;
   -webkit-box-shadow: 0 0 2px 1px rgb(4, 64, 112);
   -moz-box-shadow: 0 0 2px 1px rgb(4, 64, 112);
   box-shadow: 0 0 2px 1px rgb(4, 64, 112);
-
   padding: 1vw;
 }
-.next-button {
-  width: 12vw;
-}
-.DivQuestion {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 15vw;
-  height: 15vw;
-  background-color: red;
-}
 
-.DivNextQuestion {
-  position: absolute;
-  display: none;
-  right: 0;
-  bottom: 0;
-  width: 15vw;
-  height: 15vw;
-  background-color: blue;
+.form-check-inline {
+  margin-right: 0;
+  padding: 0;
+}
+@media only screen and (min-width: 600px) {
+  .free-test {
+    min-width: 100%;
+  }
+  .questions {
+    margin-right: 0;
+  }
+  .check-box {
+    margin-left: 0;
+  }
+  .next-image {
+    width: 90px;
+  }
+  .next {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .free-test {
+    line-height: 1.5rem;
+  }
+  .image-situation {
+    height: 40vh;
+  }
+  .next-image {
+    width: 50px;
+  }
+  .questions {
+    padding: 0;
+  }
 }

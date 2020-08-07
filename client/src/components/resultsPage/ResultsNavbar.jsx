@@ -1,31 +1,67 @@
 import React from "react";
-import { Navbar, Button } from "react-bootstrap";
+import { Navbar, Nav, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const ResultNavbar = () => {
+const ResultsNavbar = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="info" variant="dark">
-      <Navbar.Brand>
-        <h3 style={{ color: "blue" }}>Free Test Results</h3>
+    <Navbar className="color-navbar" expand="lg">
+      <Navbar.Brand href="/" active>
+        <h3 className="free">WebWinners</h3>
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Navbar className="mr-auto">
-          <Navbar.Brand>
-            <h4 className="mx-5">Web Winners</h4>
-          </Navbar.Brand>
-        </Navbar>
-        <Navbar>
-          <Navbar.Brand href="/">
-            <h3 className="mx-5">Home</h3>
-          </Navbar.Brand>
-          <Navbar.Brand href="/freetest">
-            <Button variant="light">Exit and Go To The Test</Button>{" "}
-          </Navbar.Brand>
-        </Navbar>
+        <Nav className="mr-auto">
+          <Nav.Link href="/tutorials" style={{ color: "rgb(5, 94, 110)" }}>
+            Tutorials
+          </Nav.Link>
+          <Nav.Link href="/tests" style={{ color: "rgb(5, 94, 110)" }}>
+            Take Tests
+          </Nav.Link>
+          <Nav.Link href="/contactUs" style={{ color: "rgb(5, 94, 110)" }}>
+            Contact Us
+          </Nav.Link>
+        </Nav>
+        <Navbar.Brand href="/freetest">
+          <Button
+            variant="light"
+            style={{ backgroundColor: "rgb(5, 94, 110)", color: " #b5e2f7" }}
+          >
+            Return The Test
+          </Button>
+        </Navbar.Brand>
       </Navbar.Collapse>
     </Navbar>
+
+    // <Navbar collapseOnSelect expand="lg" className="color-navbar">
+    //   <Navbar.Brand href="/">
+    //     <h3 className="free">WebWinners</h3>
+    //   </Navbar.Brand>
+    //   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+    //   <Navbar.Collapse
+    //     id="responsive-navbar-nav"
+    //     className="justify-content-start"
+    //   >
+    //     <Navbar.Brand>
+    //       <Nav.Link href="/tutorials">Tutorials</Nav.Link>
+    //     </Navbar.Brand>
+    //     <Navbar.Brand>
+    //       <Nav.Link href="/freetest">The Tests</Nav.Link>
+    //     </Navbar.Brand>
+    //     <Navbar.Brand>
+    //       <Nav.Link href="/contactUs">Contact Us</Nav.Link>
+    //     </Navbar.Brand>
+
+    //     <Navbar.Brand href="/results">
+    //       <Button
+    //         variant="light"
+    //         style={{ backgroundColor: "rgb(5, 94, 110)", color: " #b5e2f7" }}
+    //       >
+    //         Return The Test
+    //       </Button>
+    //     </Navbar.Brand>
+    //   </Navbar.Collapse>
+    // </Navbar>
   );
 };
 
-export default ResultNavbar;
+export default ResultsNavbar;

@@ -8,12 +8,12 @@ const DrivingNavbar = () => {
       collapseOnSelect
       expand="lg"
       className="color-navbar"
-      bg="secondary"
+      bg="info"
       variant="dark"
     >
-      <Navbar.Brand>
+      <Navbar.Brand href="/">
         <h3 className="free" style={{ color: "white" }}>
-          Web Winners
+          WebWinners
         </h3>
       </Navbar.Brand>
       {/* <Navbar.Brand>
@@ -25,11 +25,8 @@ const DrivingNavbar = () => {
         className="justify-content-end"
       >
         <Navbar>
-          <Navbar.Brand href="/">
-            <h3 className="mx-4">Home</h3>
-          </Navbar.Brand>
           <Navbar.Brand href="/freetest">
-            <Button variant="light">Exit and Go To The Tests</Button>{" "}
+            <Button variant="light">Go To The Tests</Button>{" "}
           </Navbar.Brand>
         </Navbar>
       </Navbar.Collapse>
