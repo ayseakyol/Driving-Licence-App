@@ -58,7 +58,9 @@ class CommentApp extends Component {
       >
         <Row>
           <Col xs={{ span: 4, offset: 2 }}>
-            <h2 style={{ marginTop: "100px" }}>Comments</h2>
+            <h2 className="comment-head" style={{ marginTop: "100px" }}>
+              Comments
+            </h2>
           </Col>
           <Col xs={{ span: 8, offset: 2 }} className="pt-3 ">
             <h6>Leave your comment or feedback here</h6>

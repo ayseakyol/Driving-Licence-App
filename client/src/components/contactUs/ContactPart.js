@@ -8,9 +8,11 @@ const ContactPart = () => {
       <Row className="parts">
         <Col xs={{ span: "11", offset: "1" }} sm={5}>
           <Row>
-            <Col>
-              <i className="fas fa-home"></i>
-              <h2>Mailing Address</h2>
+            <Col xs={1}>
+              <i className="fas fa-home contacts-i"></i>
+            </Col>
+            <Col xs={4}>
+              <p className="contacts">Mailing Address</p>
             </Col>
           </Row>
           <Row>
@@ -28,41 +30,43 @@ const ContactPart = () => {
 
         <Col xs={{ span: "11", offset: "1" }} sm={5}>
           <Row>
-            <Col>
-              <i className="fas fa-comment"></i>
-              <h2>Social</h2>
+            <Col xs={1}>
+              <i className="fas fa-comment contacts-i"></i>
+            </Col>
+            <Col xs={4}>
+              <p className="contacts">Social</p>
             </Col>
           </Row>
           <Row>
             <Col>
               <p>
-                <a href="www.linkedin.com/webwinners">
+                <a href="#">
                   <i
-                    className="fab fa-linkedin"
+                    className="fab fa-linkedin contacts-i"
                     style={{ fontSize: "36px" }}
                   ></i>
                 </a>
-                <a href="www.github.com/webwinners">
+                <a href="#">
                   <i
-                    class="fab fa-github-square"
+                    class="fab fa-github-square contacts-i"
                     style={{ fontSize: "36px" }}
                   ></i>
                 </a>
-                <a href="www.facebook.com/webwinners">
+                <a href="#">
                   <i
-                    class="fab fa-facebook-square"
+                    class="fab fa-facebook-square contacts-i"
                     style={{ fontSize: "36px" }}
                   ></i>
                 </a>
-                <a href="www.google.com/webwinners">
+                <a href="#">
                   <i
-                    class="fab fa-google-plus-square"
+                    class="fab fa-google-plus-square contacts-i"
                     style={{ fontSize: "36px" }}
                   ></i>
                 </a>
-                <a href="www.twitter.com/webwinners">
+                <a href="#">
                   <i
-                    class="fab fa-twitter-square"
+                    class="fab fa-twitter-square contacts-i"
                     style={{ fontSize: "36px" }}
                   ></i>
                 </a>
@@ -75,9 +79,11 @@ const ContactPart = () => {
       <Row className="parts">
         <Col xs={{ span: "11", offset: "1" }} sm={5}>
           <Row>
-            <Col>
-              <i className="fas fa-envelope"></i>
-              <h2>Email</h2>
+            <Col xs={1}>
+              <i className="fas fa-envelope contacts-i"></i>
+            </Col>
+            <Col xs={4}>
+              <p className="contacts">Email</p>
             </Col>
           </Row>
           <Row>
@@ -90,9 +96,11 @@ const ContactPart = () => {
         </Col>
         <Col xs={{ span: "11", offset: "1" }} sm={5}>
           <Row>
-            <Col>
-              <i className="fas fa-phone"></i>
-              <h2>Phone</h2>
+            <Col xs={1}>
+              <i className="fas fa-phone contacts-i"></i>
+            </Col>
+            <Col xs={1}>
+              <p className="contacts">Phone</p>
             </Col>
           </Row>
           <Row>

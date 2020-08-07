@@ -45,14 +45,17 @@ const Tests = () => {
         </Col>
         <Row className="image-part p-4">
           {fileNames.map((obj, id) => (
-            <Col key={id} xs={8} md={5} lg={3} xl={3} className="m-2 p-1">
+            <Col key={id} xs={8} md={5} lg={3}  className="m-2 p-1">
               <Row className="justify-content-center">
-                <p className="file-name">
+                <Col>
+                <p >
                   {" "}
-                  {obj.filename} <br /> Test
+                  {obj.filename} Test
                 </p>
+                </Col>
               </Row>
               <Row className="justify-content-center">
+                <Col>
                 <Link
                   to={{
                     pathname: "/freetest",
@@ -66,10 +69,10 @@ const Tests = () => {
                     key={id}
                     src={obj.filePath}
                     width="100%"
-                    className=""
                     rounded
                   />{" "}
                 </Link>
+                </Col>
               </Row>
             </Col>
           ))}
