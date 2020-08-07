@@ -1,5 +1,4 @@
 .result-part {
-  height: 100%;
   margin: 0;
   font-family: "Rowdies", cursive;
   font-size: 1.3rem;
@@ -12,9 +11,4 @@
 }
 .image-border {
   border-radius: 20px;
-}
-@media only screen and (max-width: 600px) {
-  .image-size {
-    width: 190px;
-  }
 }

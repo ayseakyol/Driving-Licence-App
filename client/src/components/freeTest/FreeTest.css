@@ -1,9 +1,8 @@
 .free-test {
   height: 100%;
   margin: 0 auto;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   background-color: rgb(252, 254, 255);
-  line-height: 1.5rem;
 }
 h1 {
   color: rgb(0, 140, 255);
@@ -32,7 +31,7 @@ label {
   align-items: center;
 }
 .question-part {
-  line-height: 1rem;
+  line-height: 1.5rem;
 }
 
 .image-situation {
@@ -40,26 +39,18 @@ label {
 }
 .questions {
   background-color: #efefef;
-  -webkit-box-shadow: 0 0 2px 1px rgb(4, 64, 112);
-  -moz-box-shadow: 0 0 2px 1px rgb(4, 64, 112);
-  box-shadow: 0 0 2px 1px rgb(4, 64, 112);
+  margin: 1px;
   display: flex;
   flex: 1;
   justify-content: flex-start;
   align-items: center;
 }
 .questions-text {
-  display: flex;
-  flex: 1;
-  justify-content: flex-start;
-  align-items: center;
   font-size: 1.3em;
 }
 .check-box {
   background-color: #dde7f3;
-  -webkit-box-shadow: 0 0 2px 1px rgb(4, 64, 112);
-  -moz-box-shadow: 0 0 2px 1px rgb(4, 64, 112);
-  box-shadow: 0 0 2px 1px rgb(4, 64, 112);
+  margin: 1px;
   padding: 1vw;
 }
 

@@ -5,7 +5,7 @@ export default class Timer extends Component {
     minutes: 25,
     seconds: 0,
   };
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state.minutes = this.props.minutes;
   }
@@ -43,9 +43,9 @@ export default class Timer extends Component {
         {minutes === 0 && seconds === 0 ? (
           <h3>Busted!</h3>
         ) : (
-          <h4>
+          <p className="free-navbar timer-color">
             Time Left: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-          </h4>
+          </p>
         )}
       </div>
     );

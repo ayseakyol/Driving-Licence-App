@@ -114,7 +114,7 @@ export default class formComment extends Component {
               name="type"
               id="exampleFormControlSelect1"
             >
-              <option>Questions</option>
+              <option>Question</option>
               <option>Comment</option>
             </select>
           </div>

@@ -1,10 +1,10 @@
-.first-container {
-  font-family: cursive;
-}
 .header-tips {
   margin-top: 70px;
+  font-family: "Rowdies", cursive;
+  font-size: 3rem;
 }
 .first-part {
+  font-size: 1.2rem;
 }
 h1,
 h4 {
@@ -26,6 +26,10 @@ h4 {
   flex: 1;
   justify-content: center;
   align-items: center;
+}
+.first,
+.third {
+  background-color: rgb(243, 243, 248);
 }
 
 @media only screen and (max-width: 900px) {

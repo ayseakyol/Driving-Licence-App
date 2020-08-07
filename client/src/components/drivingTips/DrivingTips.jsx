@@ -2,6 +2,7 @@ import React from "react";
 import "./DrivingTips.css";
 import { Row, Col, Image, Container } from "react-bootstrap";
 import CustomNavbar from "../home/CustomNavbar";
+import Footer from "../home/Footer";
 
 const DrivingTips = () => {
   return (
@@ -13,7 +14,7 @@ const DrivingTips = () => {
             <h1 className="text-center header-tips"> Driving Tips </h1>
           </Col>
         </Row>
-        <Row className="first-part">
+        <Row className="first-part first">
           <Col className="text-part order2" xs={12} md={6}>
             <p>
               The following pages have been prepared to give you some of the
@@ -48,7 +49,7 @@ const DrivingTips = () => {
           </Col>
         </Row>
 
-        <Row className="first-part">
+        <Row className="first-part second">
           <Col className="tips-image-part order3" xs={12} md={5}>
             <Image src="/assets/danger.jpg" width="100%" height="90%" />
           </Col>
@@ -78,7 +79,7 @@ const DrivingTips = () => {
           </Col>
         </Row>
 
-        <Row className="first-part">
+        <Row className="first-part third">
           <Col className="text-part order6" xs={12} md={6}>
             <Row>
               <Col>
@@ -112,7 +113,7 @@ const DrivingTips = () => {
           </Col>
         </Row>
 
-        <Row className="first-part">
+        <Row className="first-part fourth">
           <Col className="tips-image-part order7" xs={12} md={5}>
             <Image
               src="/assets/speedRestrictions.jpg"
@@ -158,6 +159,7 @@ const DrivingTips = () => {
             </Row>
           </Col>
         </Row>
+        <Footer />
       </Container>
     </>
   );

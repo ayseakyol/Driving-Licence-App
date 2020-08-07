@@ -8,7 +8,7 @@ const Footer = () => {
     <Navbar
       bg="light"
       variant="footer"
-      className="justify-content-center mt-5 footer"
+      className="justify-content-center footer"
     >
       <Navbar.Brand style={{ fontSize: "1rem" }}>
         CopyRight©2020 Alright Reserved WebWinners

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Image, Row, Col, Container } from "react-bootstrap";
 import "./OneResultPage.css";
 import OneResultPageNavbar from "./OneResultPageNavbar";
+import Footer from "../home/Footer";
 
 const OneResultPage = (props) => {
   const [situationNumber, setSituationNumber] = useState("");
@@ -97,33 +98,39 @@ const OneResultPage = (props) => {
             ))}
           </Col>
         </Row>
-            {questions.map((question, id) => (
-              <Row className="question-part" key={question.questionId} xs={7}>
-                <Col 
-                  xs={{ span: 10, offset: 1 }}
-                  md={{ span: 6, offset: 3 }}
-                  className="questions"
-                  key={question.questionId}
-                >
-                  <div>
-                    <div>
-                      <p key={question.questionId} className="ml-1 questions-text" >{question.text}</p>
-                    </div>
-                    <div className="feedbackQuestion">
-                      <p className="ml-1 ">
-                        {" "}
-                        {question.explanation === null
-                          ? `${question.answer}`
-                          : `${question.answer} ---> ${question.explanation}`}{" "}
-                      </p>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-            ))}
+        {questions.map((question, id) => (
+          <Row
+            className="question-part-result"
+            key={question.questionId}
+            xs={7}
+          >
+            <Col
+              xs={{ span: 10, offset: 1 }}
+              md={{ span: 6, offset: 3 }}
+              className="questions"
+              key={question.questionId}
+            >
+              <div>
+                <div>
+                  <p key={question.questionId} className="ml-1 questions-text">
+                    {question.text}
+                  </p>
+                </div>
+                <div className="feedbackQuestion">
+                  <p className="ml-1 ">
+                    {" "}
+                    {question.explanation === null
+                      ? `${question.answer}`
+                      : `${question.answer} ---> ${question.explanation}`}{" "}
+                  </p>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        ))}
       </Container>
+      <Footer />
     </>
   );
 };
-
 export default OneResultPage;

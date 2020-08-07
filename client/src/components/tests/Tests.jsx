@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Jumbotron, Row, Col, Image } from "react-bootstrap";
+import { Row, Col, Image, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import CustomNavbar from "../home/CustomNavbar";
 import Footer from "../home/Footer";
@@ -26,7 +26,7 @@ const Tests = () => {
   return (
     <>
       <CustomNavbar />
-      <Jumbotron fluid className="tests-part mt-5">
+      <Container fluid className="tests-part mt-5">
         <Col
           xs={{ span: 9, offset: 1 }}
           sm={{ span: 7, offset: 2 }}
@@ -74,8 +74,8 @@ const Tests = () => {
             </Col>
           ))}
         </Row>
-        <Footer style={{ backgroundColor: "red" }} />
-      </Jumbotron>
+      </Container>
+      <Footer />
     </>
   );
 };

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Image } from "react-bootstrap";
+import { Row, Col, Image, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ResultsNavbar from "./ResultsNavbar";
+import Footer from "../home/Footer";
 import "./Results.css";
 
 const Result = () => {
@@ -41,7 +42,7 @@ const Result = () => {
   return (
     <>
       <ResultsNavbar />
-      <div className="result-part">
+      <Container fluid className="result-part">
         <Row className="picture-part">
           {fileNames
             .filter((obj) => obj.testName === test)
@@ -51,9 +52,8 @@ const Result = () => {
             .map((obj, id) =>
               results
                 .filter(
-                  (el) =>
-                    Number(el.sequence) === Number(obj.situationNumber) 
-                    // + window.localStorage.getItem("firstSituationId")
+                  (el) => Number(el.sequence) === Number(obj.situationNumber)
+                  // + window.localStorage.getItem("firstSituationId")
                 )
                 .map((a) => (
                   <Col
@@ -69,34 +69,39 @@ const Result = () => {
                         : { border: "groove 3px red" }
                     }
                   >
-                    <Row className="justify-content-center">
-                      {obj.situationNumber}
+                    <Row>
+                      <Col className="text-center">{obj.situationNumber}</Col>
                     </Row>
                     <Row className="justify-content-center">
-                      <Link
-                        to={{
-                          pathname: "/oneResultPage",
-                          situation: {
-                            situationNo: `${obj.situationNumber}`,
-                          },
-                        }}
-                      >
-                        <Image
-                          key={id}
-                          src={obj.fileRelativePath}
-                          width="100%"
-                          className="image-border image-size p-2"
-                        />{" "}
-                      </Link>
+                      <Col>
+                        <Link
+                          to={{
+                            pathname: "/oneResultPage",
+                            situation: {
+                              situationNo: `${obj.situationNumber}`,
+                            },
+                          }}
+                        >
+                          <Image
+                            key={id}
+                            src={obj.fileRelativePath}
+                            width="100%"
+                            className="image-border p-2"
+                          />{" "}
+                        </Link>
+                      </Col>
                     </Row>
-                    <Row className="justify-content-center">
-                      <p> {a.result ? "True" : "False"} </p>
+                    <Row className="text-center">
+                      <Col>
+                        <p> {a.result ? "True" : "False"} </p>
+                      </Col>
                     </Row>
                   </Col>
                 ))
             )}
         </Row>
-      </div>
+      </Container>
+      <Footer />
     </>
   );
 };
