@@ -84,7 +84,7 @@ class CustomNavbar extends Component {
             <h2 style={{color:"white"}}>
               <Badge color="primary" style={{ textTransform: "capitalize" }}>
                 {" "}
-                WelCome..{account.username} 🇷
+                Welcome {account.username}
               </Badge>
             </h2>
             <Button variant="danger" href="/logout">

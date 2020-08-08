@@ -103,7 +103,8 @@ class Cards extends Component {
             md={{ span: 4, offset: 4 }}
             className="mt-5 mb-2"
           >
-            <a href="#practice-part">
+            <a href="#comment-part">
+              {/* later maybe practice-part */}
               <Image
                 src="/assets/bottom.png"
                 className="go-second d-none d-xl-block"
