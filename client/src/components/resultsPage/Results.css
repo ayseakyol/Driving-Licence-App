@@ -2,6 +2,8 @@
   margin: 0;
   font-family: "Rowdies", cursive;
   font-size: 1.3rem;
+  min-height: 100%;
+  position: relative;
 }
 .picture-part {
   display: flex;

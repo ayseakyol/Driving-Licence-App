@@ -13,11 +13,11 @@ const OneResultPage = (props) => {
   const [fileNames, setFileNames] = useState([]);
   const test_name = window.localStorage.getItem("testN");
   //let answer_in_storage = JSON.parse(window.localStorage.getItem('userAnswer'));
-  window.localStorage.setItem(
-    "situation_Id",
-    props.location.situation.situationNo
-  );
-  const const_situationNum = window.localStorage.getItem("situation_Id");
+  // window.localStorage.setItem(
+  //   "situation_Id",
+  //   props.location.situation.situationNo
+  // );
+  const const_situationNum = window.localStorage.getItem("sit_num");
 
   useEffect(() => {
     const fetchSituation = () => {

@@ -2,6 +2,8 @@ import React from "react";
 import { Navbar, Nav, Button, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const token = localStorage.getItem("token");
+
 const ResultsNavbar = () => {
   return (
     <Navbar
@@ -12,14 +14,15 @@ const ResultsNavbar = () => {
       variant="dark"
     >
       <Navbar.Brand href="/" active>
-        <Image src="/assets/logo2.png" height="50vh" width="50vw" />
+        <Image src="/assets/logof.png" height="50vh" width="50vw" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/tutorials">Tutorials</Nav.Link>
           <Nav.Link href="/drivingTips">Driving Tips</Nav.Link>
-          <Nav.Link href="/tests">Take Tests</Nav.Link>
+          {/* <Nav.Link href="/tests">Take Tests</Nav.Link> */}
+          {token != null ? <Nav.Link href="/tests">Take Tests</Nav.Link> : ''}
           <Nav.Link href="/contactUs">Contact Us</Nav.Link>
         </Nav>
         <Navbar.Brand href="/freetest">

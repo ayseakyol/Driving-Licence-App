@@ -11,7 +11,7 @@ const Footer = () => {
       className="justify-content-center footer"
     >
       <Navbar.Brand style={{ fontSize: "1rem" }}>
-        CopyRight©2020 Alright Reserved WebWinners
+        &copy; 2020 WebWinners
       </Navbar.Brand>
     </Navbar>
   );

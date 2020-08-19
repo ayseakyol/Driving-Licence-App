@@ -16,7 +16,7 @@ import ContactUs from "./components/contactUs/ContactUs";
 import Tests from "./components/tests/Tests"
 import Login from "./Login";
 import Logout from "./Logout";
-import Signup from "./components/SignUp/SignUp";
+import RegisterForm from "./components/SignUp/RegisterForm";
 
 class App extends Component {
   render() {
@@ -29,12 +29,12 @@ class App extends Component {
           <Route exact path="/oneResultPage" component={OneResultPage} />{" "}
           <Route exact path="/tutorials" component={Tutorials} />{" "}
           <Route exact path="/drivingTips" component={DrivingTips} />{" "}
-          <Route exact path="/newUser" component={Signup} />{" "}
+          <Route exact path="/newUser" component={RegisterForm} />{" "}
           <Route exact path="/contactUs" component={ContactUs} />
           <Route exact path="/tests" component={Tests} />
           <Route path="/login" component={Login} />{" "}
           <Route path="/logout" component={Logout} />
-          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/signup" component={RegisterForm} />
           <Redirect to="/" />
         </Switch>{" "}
       </Router>

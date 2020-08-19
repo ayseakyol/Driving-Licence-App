@@ -68,8 +68,8 @@ const Tutorials = () => {
             />
           </Col>
         </Row>
+        <Footer />
       </Container>
-      <Footer />
     </>
   );
 };

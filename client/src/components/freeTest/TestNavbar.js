@@ -14,7 +14,7 @@ const TestNavbar = ({ situationNo, testLength }) => {
       variant="dark"
     >
       <Navbar.Brand href="/" active>
-        <Image src="/assets/logo2.png" height="50vh" width="50vw" />
+        <Image src="/assets/logof.png" height="50vh" width="50vw" />
       </Navbar.Brand>
       <Navbar.Brand>
         <Timer minutes={22} />

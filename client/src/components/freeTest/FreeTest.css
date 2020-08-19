@@ -1,5 +1,6 @@
 .free-test {
-  height: 100%;
+  min-height: 100%;
+  position: relative;
   margin: 0 auto;
   font-size: 0.9rem;
   background-color: rgb(252, 254, 255);
@@ -47,6 +48,7 @@ label {
 }
 .questions-text {
   font-size: 1.3em;
+  text-align: justify;
 }
 .check-box {
   background-color: #dde7f3;
@@ -68,6 +70,10 @@ label {
   .check-box {
     margin-left: 0;
   }
+  .cursor {
+    cursor: pointer;
+  }
+
   .next-image {
     width: 90px;
   }

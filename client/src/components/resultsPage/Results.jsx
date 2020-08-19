@@ -87,6 +87,7 @@ const Result = () => {
                             src={obj.fileRelativePath}
                             width="100%"
                             className="image-border p-2"
+                            onClick = {() => localStorage.setItem("sit_num" , obj.situationNumber) }
                           />{" "}
                         </Link>
                       </Col>

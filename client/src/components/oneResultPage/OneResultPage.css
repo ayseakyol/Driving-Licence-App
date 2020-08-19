@@ -5,6 +5,7 @@ html {
   color: red;
   font-family: "Courier New", Courier, monospace;
   font-weight: 600;
+  text-align: justify;
   display: flex;
   flex: 1;
   justify-content: flex-start;

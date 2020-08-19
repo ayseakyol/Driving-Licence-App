@@ -25,7 +25,7 @@ const FreeTest = (props) => {
           (el) => el.questionId === idx
         );
         if (isAnswered_before.length === 0) {
-          let usr_answer = userAnswer.slice();
+          let usr_answer = answer_in_storage.slice();
           usr_answer.push({
             questionId: idx,
             answer: answerNo,
@@ -35,8 +35,8 @@ const FreeTest = (props) => {
           setUserAnswer(aa);
           window.localStorage.setItem("userAnswer", JSON.stringify(usr_answer));
         } else {
-          let usr_answer = isAnswered_before.slice();
-          let changedAnswer = usr_answer.filter((el) => el.questionId !== idx);
+          //let usr_answer = isAnswered_before.slice();
+          let changedAnswer = answer_in_storage.filter((el) => el.questionId !== idx);
           changedAnswer.push({
             questionId: idx,
             answer: answerNo,
@@ -154,14 +154,14 @@ const FreeTest = (props) => {
                   className="form-check form-check-inline check-box pl-1"
                 >
                   <input
-                    className="form-check-input"
+                    className="form-check-input cursor"
                     type="radio"
                     name={id}
-                    id={`inlineRadio${question.questionId}`}
+                    id={`"inlineRadio${question.questionId}"`}
                     value="option1"
                     onChange={() => getAnswer(question.questionId, 1)}
                   />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
+                  <label className="form-check-label cursor" for={`"inlineRadio${question.questionId}"`}>
                     Yes
                   </label>
                 </Col>
@@ -171,14 +171,14 @@ const FreeTest = (props) => {
                   className="form-check form-check-inline check-box pl-1"
                 >
                   <input
-                    className="form-check-input"
+                    className="form-check-input cursor"
                     type="radio"
                     name={id}
-                    id={`inlineRadio${question.questionId + 1}`}
+                    id={`"inlineRadio${question.questionId}1"`}
                     value="option2"
                     onChange={() => getAnswer(question.questionId, 2)}
                   />
-                  <label className="form-check-label" htmlFor="inlineRadio2">
+                  <label className="form-check-label cursor" for={`"inlineRadio${question.questionId}1"`}>
                     No
                   </label>
                 </Col>
